@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{% url 'artists:add' %} ">Add New artist</a>
+<br>
+<br>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Birthplace</th>
+            <th>Born</th>
+            <th>Death</th>
+            <th>Movement</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for m in artists %}
+        <tr>
+            <td><a href="{% url 'artists:edit' m.id %} ">{{m.Name}}</a></td>
+
+            <td>{{m.Birthplace}} </td>
+            <td>{{m.Born}} </td>
+            <td>{{m.Death}} </td>
+            <td>{{m.Movement}} </td>
+            <td><a href="{% url 'artists:delete' m.id %} ">delete</a> </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

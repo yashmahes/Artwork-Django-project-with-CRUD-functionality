@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<dl>
+    <dt>Title</dt>
+    <dd>{{artist.title}} </dd>
+    <dt>Genre </dt>
+    <dd>{{artist.genre}} </dd>
+    <dt>Stock </dt>
+    <dd>{{artist.number_in_stock}} </dd>
+    <dt>Release Year </dt>
+    <dd>{{artist.release_year}} </dd>
+    <dt>Daily Rental Price </dt>
+    <dd>{{artist.daily_rate}} </dd>
+</dl>
+{% endblock %}
