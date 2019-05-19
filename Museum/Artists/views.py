@@ -6,12 +6,12 @@ from .forms import ArtistForm
 
 def index(request):
     artists = Artist.objects.all()
-    return render(request, 'movies/index.html', {'artists': artists})
+    return render(request, 'Artists/index.html', {'artists': artists})
 
 
 def detail(request, artist_id):
     m = get_object_or_404(Artist, id=artist_id)
-    # return render(request, 'movies/detail.html', {'artist': m})
+    # return render(request, 'Artists/detail.html', {'artist': m})
 
     form = ArtistForm()
     form.Name = m.Name
@@ -20,7 +20,7 @@ def detail(request, artist_id):
     form.Birthplace = m.Birthplace
     form.Death = m.Death
 
-    return render(request, 'movies/add.html', {'form': form})
+    return render(request, 'Artists/add.html', {'form': form})
 
     # try:
     #     m = artist.objects.get(id=artist_id)
@@ -31,7 +31,7 @@ def detail(request, artist_id):
 
 def add(request):
     form = ArtistForm()
-    return render(request, 'movies/add.html', {'form': form})
+    return render(request, 'Artists/add.html', {'form': form})
 
 
 def save_artist(request):
@@ -51,10 +51,10 @@ def save_artist(request):
             # user = authenticate(username=username, password=raw_password)
             # login(request, user)
             artists = Artist.objects.all()
-            return render(request, 'movies/index.html', {'artists': artists})
+            return render(request, 'Artists/index.html', {'artists': artists})
     else:
         form = ArtistForm()
-    return render(request, 'movies/add.html', {'form': form})
+    return render(request, 'Artists/add.html', {'form': form})
 
 
 def delete(request, artist_id):
@@ -62,12 +62,12 @@ def delete(request, artist_id):
 
     m.delete()
     artists = Artist.objects.all()
-    return render(request, 'movies/index.html', {'artists': artists})
+    return render(request, 'Artists/index.html', {'artists': artists})
 
 
 def edit(request, artist_id):
     artist = Artist.objects.get(id=artist_id)
-    return render(request, 'movies/edit.html', {'artist': artist})
+    return render(request, 'Artists/edit.html', {'artist': artist})
 
 
 def update(request, artist_id):
@@ -79,6 +79,6 @@ def update(request, artist_id):
         print(form.cleaned_data)
         form.save()
         artists = Artist.objects.all()
-        return render(request, 'movies/index.html', {'artists': artists})
+        return render(request, 'Artists/index.html', {'artists': artists})
 
-    return render(request, 'movies/edit.html', {'artist': artist})
+    return render(request, 'Artists/edit.html', {'artist': artist})

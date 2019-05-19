@@ -1,5 +1,5 @@
 """
-WSGI config for vidly project.
+WSGI config for Museum project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vidly.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Museum.settings')
 
 application = get_wsgi_application()
